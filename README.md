@@ -10,7 +10,7 @@ This repository provides simple code snippets and implementations in Rust progra
 
 ## Part A: Number Theory
 
-### 0: Euclid's Algorithm (Extended)
+### [0: ](./0-euclidian-algorithm/README.md) Euclid's Algorithm (Extended)
 
 `euclid.rs` provides an implementation of Euclid's algorithm for finding the greatest common divisor (GCD) of two integers. It also includes an extended version that computes the coefficients of Bézout's identity, which can be used for solving linear Diophantine equations.
 
