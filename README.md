@@ -1,5 +1,7 @@
 # Discrete Mathematics with Rust
 
+![Discrete Mathematics with Rust](./img/logo.png)
+
 This repository provides simple code snippets and implementations in Rust programming language for understanding various topics in discrete mathematics. The code examples and explanations are designed to be easy to understand, making it accessible for beginners to learn and apply these mathematical concepts in Rust.
 
 ## Authors
