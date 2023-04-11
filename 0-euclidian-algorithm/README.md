@@ -15,7 +15,7 @@ gcd a b
   where
     r = mod a b
 ```
-In the pseudocode, `a` and `b` are the input integers, and `mod` denotes the modulo operation, which gives the remainder `r` when `a` is divided by `b`. The algorithm continues to update the values of `a` and `b` by assigning `a` to `r` and `a` to `b`, until `r` becomes zero. At this point, `b` holds the GCD of the original input integers.
+In the pseudocode, `a` and `b` are the input integers, and `mod` denotes the modulo operation, which gives the remainder `r` when `a` is divided by `b`. The algorithm continues to update the values of `a` and `b` by assigning `b` to `a` and `r` to `b`, until `r` becomes zero. At this point, `b` holds the GCD of the original input integers.
 
 In Rust, we can use recursion to implement the Euclidean algorithm and compute the GCD of two given integers `a` and `b`. Here's an example implementation in Rust:
 ```rust
