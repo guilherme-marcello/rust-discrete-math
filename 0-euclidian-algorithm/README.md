@@ -8,10 +8,10 @@ The Euclidean algorithm takes two positive integers, `a` and `b`, as input and c
 
 Here's an Haskell snippet representation of the Euclidean algorithm:
 ```haskell
-gdc :: Int -> Int -> Int
-gdc a b
+gcd :: Int -> Int -> Int
+gcd a b
   | r == 0 = b
-  | otherwise = gdc b r
+  | otherwise = gcd b r
   where
     r = mod a b
 ```
