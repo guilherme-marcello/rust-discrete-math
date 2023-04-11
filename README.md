@@ -1,6 +1,6 @@
-# Discrete Mathematics with Rust
+# Elements of Discrete Mathematics with Rust
 
-![Discrete Mathematics with Rust](./img/logo.png)
+![Elements of Discrete Mathematics with Rust](./img/logo.png)
 
 This repository provides simple code snippets and implementations in Rust programming language for understanding various topics in discrete mathematics. The code examples and explanations are designed to be easy to understand, making it accessible for beginners to learn and apply these mathematical concepts in Rust.
 
@@ -14,7 +14,7 @@ This repository provides simple code snippets and implementations in Rust progra
 
 `euclid.rs` provides an implementation of Euclid's algorithm for finding the greatest common divisor (GCD) of two integers. It also includes an extended version that computes the coefficients of Bézout's identity, which can be used for solving linear Diophantine equations.
 
-### 1: Invertibility and Divisibility on ℤ and on ℤn
+### 1: Invertibility and Divisibility on $ℤ$ and on $ℤ_n$
 
 `invertibility_and_divisibility.rs` demonstrates the concepts of invertibility and divisibility on integers (ℤ) and modular integers (ℤn). It includes code snippets for checking if an integer is invertible (i.e., has a multiplicative inverse) and how to perform modular arithmetic operations such as addition, subtraction, multiplication, and exponentiation.
 
