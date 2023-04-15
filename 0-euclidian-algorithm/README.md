@@ -76,6 +76,7 @@ fn aux_ext(d0: i32, d1: i32, q1: i32, x0: i32, x1: i32, y0: i32, y1: i32) -> (i3
 By using this aux function, is possible to define a simple-to-call function that handles the algorithm initial values:
 ```rust
 fn ext(a: i32, b: i32) -> (i32, i32, i32) {
-    return aux_ext(a, b, a / b, 1, 0, 0, 1);
+    return
+    if (a > b) {aux_ext(a, b, a / b, 1, 0, 0, 1)} else {aux_ext(a, b, a / b, 0, 1, 1, 0)};
 }
 ```
