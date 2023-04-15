@@ -31,9 +31,9 @@ fn gcd(a: i32, b: i32) -> i32 {
 The Euclidean algorithm also has an extended version called the Extended Euclidean algorithm, which computes the coefficients of Bézout's identity. Bézout's identity states that for any two integers `a` and `b`, there exist integers `x` and `y` such that `ax + by = gcd(a, b)`. The Extended Euclidean algorithm can be used to find these coefficients, which can be helpful in solving linear Diophantine equations.
 
 We establish a relationship among the lines $i_{+ 1}$, $i$, and $i_{- 1}$ based on the Extended Euclidean Algorithm in the following manner:
-$$ d_2 = d_0 - q_1d_1 $$
-$$ x_2 = x_0 - q_1x_1 $$
-$$ y_2 = y_0 - q_1y_1 $$
+$$d_2 = d_0 - q_1d_1$$
+$$x_2 = x_0 - q_1x_1$$
+$$y_2 = y_0 - q_1y_1$$
 And subsequently, this relationship can be computed and tabulated to obtain the resulting values of x, y, and gcd(a, b):
 | $i$ |       $a_i$       |     $q_i$     |         $x_i$         |         $y_i$        |
 |:---:|:-----------------:|:-------------:|:---------------------:|:--------------------:|
@@ -56,4 +56,26 @@ def ext(d0, d1, q1, x0 = 1, x1 = 0, y0 = 0, y1 = 1) -> (int, int, int):
     # 
     return ext (d1, d2, d1 // d2, x1, x2, y1, y2)
 ```
+
 This recursive process continues until `d2` (remainder of `d0 / d1`) becomes zero, at which point the function returns the final values of `x1`, `y1`, and `d1`, which represent the coefficients of Bézout's identity and the GCD of the original input integers, respectively.
+
+In Rust, we can use recursion to implement the Extended Euclidian algorithm and compute the $(x,y)$ such that $a\cdot x + b\cdot y = \text{gcd}(a,b)$. Here's an example implementation in Rust that uses an auxiliary function to handle the algorithm-core as presented in Python above:
+```rust
+fn aux_ext(d0: i32, d1: i32, q1: i32, x0: i32, x1: i32, y0: i32, y1: i32) -> (i32, i32, i32) {
+    let d2 = d0 - q1*d1;
+    if d2 == 0 {
+        return (x1, y1, d1)
+    }
+    let x2 = x0 - q1*x1;
+    let y2 = y0 - q1*y1;
+    
+    return aux_ext(d1, d2, d1 / d2, x1, x2, y1, y2);
+}
+```
+
+By using this aux function, is possible to define a simple-to-call function that handles the algorithm initial values:
+```rust
+fn ext(a: i32, b: i32) -> (i32, i32, i32) {
+    return aux_ext(a, b, a / b, 1, 0, 0, 1);
+}
+```
