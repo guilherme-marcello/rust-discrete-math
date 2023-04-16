@@ -3,7 +3,7 @@
  * @param `a`   - First integer
  * @param `b`   - Second integer
  */
-fn gcd(a: i32, b: i32) -> i32 {
+pub fn gcd(a: i32, b: i32) -> i32 {
     let r = a % b; 
     if r == 0 {
         return b;
@@ -18,7 +18,7 @@ fn gcd(a: i32, b: i32) -> i32 {
  */
 fn ext(a: i32, b: i32) -> (i32, i32, i32) {
     return 
-    if (a > b) {aux_ext(a, b, a / b, 1, 0, 0, 1)} else {aux_ext(a, b, a / b, 0, 1, 1, 0)};
+    if a > b {aux_ext(a, b, a / b, 1, 0, 0, 1)} else {aux_ext(a, b, a / b, 0, 1, 1, 0)};
 }
 /*
  * aux function for extended euclidian algorithm recursive calls
