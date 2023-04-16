@@ -10,13 +10,13 @@ This repository provides simple code snippets and implementations in Rust progra
 
 ## Part A: Number Theory
 
-### [0: ](./0-euclidian-algorithm/README.md) Euclid's Algorithm (Extended)
+### [0: ](./0-euclidian-algorithm/0.md) Euclid's Algorithm (Extended)
 
 `euclid.rs` provides an implementation of Euclid's algorithm for finding the greatest common divisor (GCD) of two integers. It also includes an extended version that computes the coefficients of Bézout's identity, which can be used for solving linear Diophantine equations.
 
-### 1: Invertibility and Divisibility on $ℤ$ and on $ℤ_n$
+### [1: ](./1-invertibility-divisibility/1.md)  Invertibility and Divisibility on $ℤ_n$
 
-`invertibility_and_divisibility.rs` demonstrates the concepts of invertibility and divisibility on integers (ℤ) and modular integers (ℤn). It includes code snippets for checking if an integer is invertible (i.e., has a multiplicative inverse) and how to perform modular arithmetic operations such as addition, subtraction, multiplication, and exponentiation.
+`invertibility_and_divisibility.rs` demonstrates the concepts of invertibility and divisibility on modular integers ($ℤ_n$). It includes code snippets for checking if an integer is invertible (i.e., has a multiplicative inverse) and how to perform modular arithmetic operations such as addition, subtraction, multiplication, and exponentiation.
 
 ### 2: Solving Linear Modular Equations (Including Systems)
 
