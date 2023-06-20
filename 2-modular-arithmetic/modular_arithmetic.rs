@@ -1,4 +1,4 @@
-struct ModInteger {
+pub struct ModInteger {
     value:  i32,    // value of the modular integer
     n:      i32     // modulus for arithmetic operations
 }
