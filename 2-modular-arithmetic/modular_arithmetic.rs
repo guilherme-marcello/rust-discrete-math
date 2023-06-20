@@ -33,6 +33,10 @@ impl ModInteger {
         ModInteger::new(self.value.pow(power), self.n)
     }
 
+    pub fn modulus(&self) -> i32 {
+        self.n
+    }
+
     pub fn to_string(&self) -> String {
         format!("{} mod {}", &self.value, &self.n)
     }
