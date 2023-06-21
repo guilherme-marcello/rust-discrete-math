@@ -8,7 +8,7 @@ use euclid::ext;
  * @param `a`   - First integer
  * @param `b`   - Second integer
  */
-fn coprime(a: i32, b: i32) -> bool {
+pub fn coprime(a: i32, b: i32) -> bool {
     return gcd(a, b) == 1;
 }
 
