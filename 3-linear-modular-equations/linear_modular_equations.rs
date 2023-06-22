@@ -4,7 +4,31 @@
 #[path = "../0-euclidian-algorithm/euclid.rs"] mod euclid;
 use euclid::gcd;
 use invertibility_and_divisibility::inverse;
+use invertibility_and_divisibility::coprime;
 use modular_arithmetic::ModInteger;
+use std::collections::VecDeque;
+
+/*
+ * Returns true if all elements of v are coprime 2-2
+ * @param `mut v`    - VecDeque of integers
+ */
+fn are_coprime(mut v: VecDeque<i32>) -> bool {
+    if v.is_empty() {
+        return true;
+    }
+
+    // remove head and verify if it's coprime with remaining elements
+    let head = v.remove(0).unwrap();
+    for &value in v.iter() {
+        let cop = coprime(head, value);
+        if !coprime(head, value) {
+            return false;
+        }
+    }
+
+    // do the same with the remaining 
+    return are_coprime(v);  
+}
 
 /*
  * Returns (x mod b) such that a.x ≡ b
@@ -52,5 +76,11 @@ fn main() {
     for solution in &solutions {
         println!("x ≡ {}", solution.to_string()); 
     }
-      
+
+    // given {3, 4, 5}
+    let mut mods = VecDeque::new();
+    mods.push_back(3);
+    mods.push_back(4);
+    mods.push_back(5);
+    println!("All two elements of {:?} are coprime? {}", mods, are_coprime(mods.clone()));
 }
