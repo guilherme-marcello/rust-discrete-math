@@ -9,7 +9,7 @@ use modular_arithmetic::ModInteger;
 use std::collections::VecDeque;
 
 /*
- * Returns true if all elements of v are coprime 2-2
+ * Returns true if every two elements of v are coprime
  * @param `mut v`    - VecDeque of integers
  */
 fn are_coprime(mut v: VecDeque<i32>) -> bool {
