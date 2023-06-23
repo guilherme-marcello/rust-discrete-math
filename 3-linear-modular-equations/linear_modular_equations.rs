@@ -20,7 +20,6 @@ fn are_coprime(mut v: VecDeque<i32>) -> bool {
     // remove head and verify if it's coprime with remaining elements
     let head = v.remove(0).unwrap();
     for &value in v.iter() {
-        let cop = coprime(head, value);
         if !coprime(head, value) {
             return false;
         }
