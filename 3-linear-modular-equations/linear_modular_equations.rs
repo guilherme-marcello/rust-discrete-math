@@ -29,6 +29,43 @@ fn are_coprime(mut v: VecDeque<i32>) -> bool {
     return are_coprime(v);  
 }
 
+fn solve_system_crt_aux(mod_int: ModInteger, mut v: VecDeque<ModInteger>) -> ModInteger {
+    // remove head:
+    // solve x ≡ mod_int and x ≡ head system if there's head
+    // else return mod_int
+    match v.pop_front() {
+        Some(head) => solve_system_crt_aux(
+            solve_binary_system(&mod_int, &head), v
+        ),
+        None => mod_int,
+    }
+}
+
+fn solve_system_crt(mut v: VecDeque<ModInteger>) -> ModInteger {
+    let head = v.pop_front().expect("Input vector is empty");
+    solve_system_crt_aux(head, v)
+}
+
+fn solve_binary_system(a: &ModInteger, b: &ModInteger) -> ModInteger {
+    println!("Solving {} and {} system!", a.to_string(), b.to_string());
+    // given x ≡ g mod h, x = h.k + g
+    let g = a.value();
+    let h = a.modulus();
+
+    // given x ≡ i mod j
+    let i = b.value();
+    let j = b.modulus();
+
+    // h.k + g ≡ i mod j <=> h.k ≡ (i - g) mod j
+    let k = solve(
+        h, &ModInteger::new(i - g, j)
+    ).pop().unwrap();
+
+    // x ≡ (h.k + g) mod (h.j)
+
+    ModInteger::new(h * k.value() + g, h * j)
+}
+
 /*
  * Returns (x mod b) such that a.x ≡ b
  * @param `a`   - Coefficient of x
@@ -82,4 +119,16 @@ fn main() {
     mods.push_back(4);
     mods.push_back(5);
     println!("All two elements of {:?} are coprime? {}", mods, are_coprime(mods.clone()));
+
+    // given x ≡ 2 mod 3 and x ≡ 3 mod 5 and x ≡ 2 mod 7 
+    let first = ModInteger::new(2, 3);
+    let second = ModInteger::new(3, 5);
+    let third = ModInteger::new(2, 7);
+
+    let mut v = VecDeque::new();
+    v.push_back(first);
+    v.push_back(second);
+    v.push_back(third);
+
+    println!("Answer is {}", solve_system_crt(v).to_string());
 }
