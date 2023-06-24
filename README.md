@@ -24,7 +24,7 @@ This repository provides simple code snippets and implementations in Rust progra
 
 ### 3: Solving Linear Modular Equations (Including Systems)
 
-`linear_modular_equations.rs` provides an implementation for solving linear modular equations and systems of equations using the Chinese Remainder Theorem (CRT) and Gaussian Elimination. It includes code examples for finding solutions to congruences and systems of congruences.
+`linear_modular_equations.rs` provides an implementation for solving linear modular equations and systems of equations using the Chinese Remainder Theorem (CRT). It includes code examples for finding solutions to congruences and systems of congruences.
 
 ### 4: Theorems of Fermat and Euler; The Totient Function
 
