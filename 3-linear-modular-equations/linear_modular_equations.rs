@@ -105,30 +105,32 @@ fn solve(a: i32, b: &ModInteger) -> Vec<ModInteger> {
 
 fn main() {
     // given the linear equation: 35x ≡ 10 mod 50
-    let a = 35;
-    let b = ModInteger::new(10, 50);
-    let solutions = solve(a, &b);
+    let solutions = solve(
+        35, &ModInteger::new(10, 50)
+    );
     println!("Solutions:");
     for solution in &solutions {
         println!("x ≡ {}", solution.to_string()); 
     }
 
-    // given {3, 4, 5}
-    let mut mods = VecDeque::new();
-    mods.push_back(3);
-    mods.push_back(4);
-    mods.push_back(5);
-    println!("All two elements of {:?} are coprime? {}", mods, are_coprime(mods.clone()));
-
     // given x ≡ 2 mod 3 and x ≡ 3 mod 5 and x ≡ 2 mod 7 
-    let first = ModInteger::new(2, 3);
-    let second = ModInteger::new(3, 5);
-    let third = ModInteger::new(2, 7);
+    let mut system = VecDeque::new();
+    system.push_back(
+        ModInteger::new(2, 3)
+    );
+    system.push_back(
+        ModInteger::new(3, 5)
+    );
+    system.push_back(
+        ModInteger::new(2, 7)
+    );
 
-    let mut v = VecDeque::new();
-    v.push_back(first);
-    v.push_back(second);
-    v.push_back(third);
+    // verify if every two elements of mod vector are coprime
+    let mods = system.iter().map(
+        |x: &ModInteger| x.modulus()
+    ).collect::<VecDeque<i32>>();
 
-    println!("Answer is {}", solve_system_crt(v).to_string());
+
+    println!("All two elements of {:?} are coprime? {}", mods, are_coprime(mods.clone()));    
+    println!("Solution of system of congruences: {}", solve_system_crt(system).to_string());
 }
