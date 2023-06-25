@@ -28,7 +28,7 @@ This repository provides simple code snippets and implementations in Rust progra
 
 ### 4: Theorems of Fermat and Euler; The Totient Function
 
-`fermat_euler_totient.rs` introduces the theorems of Fermat and Euler, which are important results in number theory related to modular arithmetic. It includes code snippets for computing Euler's totient function and checking if a number is a Fermat or Euler pseudoprime.
+`fermat_euler_totient.rs` introduces the theorems of Fermat and Euler, which are important results in number theory related to modular arithmetic. It includes code snippets for computing Euler's totient function and the decomposition of a number into its prime factors.
 
 ### 5: RSA Cryptography
 
