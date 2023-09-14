@@ -20,18 +20,18 @@ fn decompose_into_primes(n: u32) -> Vec<u32> {
 fn totient(n: u32) -> u32 {
     let primes = decompose_into_primes(n);
     println!("Prime factors of {}: {:?}", n, primes);
-    totient_aux(primes)
+    totient_with_prime_factors(primes)
 }
 
-fn totient_aux(mut prime_factors: Vec<u32>) -> u32 {
+pub fn totient_with_prime_factors(mut prime_factors: Vec<u32>) -> u32 {
     match prime_factors.pop() {
-        Some(head) => (head -  1) * totient_aux(prime_factors),
+        Some(head) => (head -  1) * totient_with_prime_factors(prime_factors),
         None => 1,
     }
 }
 
 fn main() {
-    let number = 4294967295;
+    let number = 2147483642;
     let ttt = totient(number);
     println!("Totient of {} is {}", number, ttt);
 }
